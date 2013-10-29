@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author welcome
+ * @author aFousan
  */
 @Controller
 public class BlueController {
-    
+
     @RequestMapping(value = "/login")
-    public String home(){
+    public String login() {
         return "login";
+    }
+
+    @RequestMapping(value = "/join")
+    public String join() {
+        return "join";
     }
 }

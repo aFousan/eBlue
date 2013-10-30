@@ -4,6 +4,7 @@
  */
 package com.afousan.eblue.repo;
 
+import java.util.UUID;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.springframework.data.redis.core.BoundHashOperations;
@@ -42,7 +43,7 @@ public class EblueRepository {
         }
         //add to list
 
-        return "join#SUCCESS";
+        return addAuth(name);
     }
 
     public boolean auth(String user, String pass) {
@@ -56,7 +57,33 @@ public class EblueRepository {
         return false;
     }
 
+    public String addAuth(String name) {
+        String uid = findUid(name);
+        // add random auth key relation
+        String auth = UUID.randomUUID().toString();
+        valueOps.set(RedisKeyUtils.auth(uid), auth);
+        valueOps.set(RedisKeyUtils.authKey(auth), uid);
+        return auth;
+    }
+
     public String findUid(String name) {
         return valueOps.get(RedisKeyUtils.user(name));
+    }
+
+    public String findNameForAuth(String value) {
+        String uid = valueOps.get(RedisKeyUtils.authKey(value));
+        return findName(uid);
+    }
+
+    private String findName(String uid) {
+        if (!StringUtils.hasText(uid)) {
+            return "";
+        }
+        BoundHashOperations<String, String, String> userOps = template.boundHashOps(RedisKeyUtils.uid(uid));
+        return userOps.get("name");
+    }
+
+    public boolean isUserValid(String name) {
+        return template.hasKey(RedisKeyUtils.user(name));
     }
 }

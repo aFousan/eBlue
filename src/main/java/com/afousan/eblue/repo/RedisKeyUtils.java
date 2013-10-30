@@ -23,4 +23,14 @@ abstract class RedisKeyUtils {
     public static String user(String name) {
         return "user:" + name + ":uid";
     }
+
+    static String auth(String uid) {
+        return UID + uid + ":auth";
+    }
+
+    static String authKey(String auth) {
+        return "auth:" + auth;
+    }
+    
+    
 }

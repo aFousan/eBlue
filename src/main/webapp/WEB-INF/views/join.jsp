@@ -23,7 +23,7 @@
                 <h2 class="form-signin-heading">Register</h2>
                 <input type="text" name="name" class="form-control" placeholder="User Name" autofocus>
                 <input type="text" name="pass1" class="form-control" placeholder="Email" >
-                <input type="text" class="form-control" placeholder="Email Verify" >
+                <input type="text" name="pass2" class="form-control" placeholder="Email Verify" >
                 <input type="password" name="pass" class="form-control" placeholder="Password" >
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
                 Already have an Account <a href="login">Sign in</a>

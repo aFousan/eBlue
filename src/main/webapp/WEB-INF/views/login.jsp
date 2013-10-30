@@ -12,17 +12,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="aFousan">
-        <link rel="shortcut icon" href="resources/images/ico/favicon.png">
+        <link rel="shortcut icon" href="static/images/ico/favicon.png">
         <title>Sign In</title>
-        <link rel="stylesheet" href="resources/css/bootstrap.css">
+        <link rel="stylesheet" href="static/css/bootstrap.css">
     </head>
     <body>
         <div class="container">
 
-            <form action="#" class="form-signin">
+            <form action="login" class="form-signin">
                 <h2 class="form-signin-heading">Sign in</h2>
-                <input type="text" class="form-control" placeholder="Email address" autofocus>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="text" name="user" class="form-control" placeholder="Email address" autofocus>
+                <input type="password" name="pass" class="form-control" placeholder="Password">
                 <label class="checkbox">
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>

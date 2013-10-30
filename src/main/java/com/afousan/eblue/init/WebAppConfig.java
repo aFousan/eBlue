@@ -27,12 +27,12 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/").setCachePeriod(3000);
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(3000);
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("login");
+        registry.addViewController("/").setViewName("landing");
     }
 
     @Bean
